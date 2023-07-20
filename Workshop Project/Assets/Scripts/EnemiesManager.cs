@@ -8,13 +8,13 @@ using UnityEngine;
 
 public class EnemiesManager : MonoBehaviour
 {
-    [SerializeField] GameObject enemy;
+    [SerializeField] GameObject Enemy;
     [SerializeField] Vector2 spawnArea;
     [SerializeField] float spawnTimer;
     [SerializeField] Transform player;
     float timer;
 
-    private void Update()
+    void Update()
     {
         timer -= Time.deltaTime;
         if (timer < 0f)
@@ -24,15 +24,16 @@ public class EnemiesManager : MonoBehaviour
         }
     }
 
-    private void SpawnEnemy()
+    void SpawnEnemy()
     {
+
         Vector3 position = new Vector3(
             UnityEngine.Random.Range(-spawnArea.x, spawnArea.x),
             UnityEngine.Random.Range(-spawnArea.y, spawnArea.y),
             0f
             );
 
-        GameObject newEnemy = Instantiate(enemy);
+        GameObject newEnemy = Instantiate(Enemy);
         newEnemy.transform.position = position;
         newEnemy.GetComponent<Enemy>().targetDestination = player;
     }
