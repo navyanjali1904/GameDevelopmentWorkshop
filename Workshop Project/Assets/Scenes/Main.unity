@@ -766,7 +766,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0019ebb6f80f904b96cfa124be60bab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 877734938}
+  Enemy: {fileID: 877734938}
   spawnArea: {x: 30, y: 30}
   spawnTimer: 3
   player: {fileID: 1681986884}
