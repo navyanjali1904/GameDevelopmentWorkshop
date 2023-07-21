@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     Transform targetDestination;
     GameObject targetGameobject;
     [SerializeField] float speed;
+    [SerializeField] int lives = 3;
+
 
     Rigidbody2D rgdbd2d;
 
@@ -42,9 +44,11 @@ public class Enemy : MonoBehaviour
         Debug.Log("Attacking the objective");
     }
 
-    public void takeDamage(float damage)
+    public void takeDamage(int damage)
     {
-        Debug.Log("Enemy takes damage");
+        lives -= damage;
+        if (lives < 0)
+            die();
     }
 
     private void die()
