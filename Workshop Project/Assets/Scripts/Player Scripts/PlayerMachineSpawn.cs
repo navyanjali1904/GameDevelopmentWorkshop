@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MachineSpawner : MonoBehaviour
+public class PlayerMachineSpawn : MonoBehaviour
 {
     // Start is called before the first frame update
 
@@ -19,7 +19,7 @@ public class MachineSpawner : MonoBehaviour
             
             Instantiate(RedMachine, transform.position, Quaternion.identity);
         }
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.T))
         {
 
             Instantiate(BlueMachine, transform.position, Quaternion.identity);
