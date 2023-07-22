@@ -114,6 +114,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4318460932172943210}
     m_Modifications:
+    - target: {fileID: 2344433750830480932, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+      propertyPath: enemyTag
+      value: yellowEnemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2947616809362858091, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
       propertyPath: m_Name
       value: BulletShooter -  yellow

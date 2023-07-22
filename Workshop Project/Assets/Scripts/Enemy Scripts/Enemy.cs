@@ -8,8 +8,13 @@ public class Enemy : MonoBehaviour
 {
     Transform targetDestination;
     GameObject targetGameobject;
+    Objective targetObjective;
     [SerializeField] float speed;
-    [SerializeField] int lives = 3;
+    [SerializeField] public int maxHP = 3;
+    [SerializeField] public int currentHP = 3;
+    [SerializeField] int damage = 1;
+    [SerializeField] EnemyStatusBar EnemyHPBar;
+
 
 
     Rigidbody2D rgdbd2d;
@@ -41,18 +46,20 @@ public class Enemy : MonoBehaviour
 
     private void Attack()
     {
-        Debug.Log("Attacking the objective");
+        if (targetObjective == null)
+        {
+            targetObjective = targetGameobject.GetComponent<Objective>();
+        }
+
+        targetObjective.TakeDamage(damage);
     }
 
-    public void takeDamage(int damage)
+    public void TakeDamage(int damage)
     {
-        lives -= damage;
-        if (lives < 0)
-            die();
+        currentHP -= damage;
+        if (currentHP < 1)
+            Destroy(gameObject);
+        EnemyHPBar.SetState(currentHP, maxHP);
     }
-
-    private void die()
-    {
-        Destroy(transform.gameObject);
-    }
+    
 }
