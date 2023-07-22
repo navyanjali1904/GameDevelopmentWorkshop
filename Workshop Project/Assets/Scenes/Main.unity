@@ -807,7 +807,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1767027239}
   - component: {fileID: 1767027238}
-  - component: {fileID: 1767027240}
   m_Layer: 0
   m_Name: background
   m_TagString: Untagged
@@ -882,21 +881,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1767027240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1767027237}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 445773fc33de4594d9a91f0a919a4d1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RedMachine: {fileID: 2433882090533956169, guid: c3b0318b36f5df24fbcd79e5fef3b55f, type: 3}
-  BlueMachine: {fileID: 2433882090533956169, guid: 108e6559c57a0954ba89802d3bf5d6a5, type: 3}
-  YellowMachine: {fileID: 7940196010816089777, guid: e9bf8e3fd4e536b468c7aa99d81bf12e, type: 3}
 --- !u!1 &1769333738
 GameObject:
   m_ObjectHideFlags: 0
