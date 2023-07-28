@@ -247,7 +247,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6210a99345942d4abc4afef3c7fa8b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   maxHP: 3
   currentHP: 3
   damage: 1
@@ -265,7 +265,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItemPrefab: {fileID: 472682856192114556, guid: dd0923989264678489a1f8f517da8e8d, type: 3}
-  chance: 0.448
 --- !u!1 &6149477351228273792
 GameObject:
   m_ObjectHideFlags: 0
