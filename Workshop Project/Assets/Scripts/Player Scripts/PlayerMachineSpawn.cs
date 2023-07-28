@@ -6,7 +6,9 @@ public class PlayerMachineSpawn : MonoBehaviour
 {
     // Start is called before the first frame update
 
-
+    private int redEnergy;
+    private int blueEnergy;
+    private int yellowEnergy;
     // Update is called once per frame
     public Rigidbody2D RedMachine;
     public Rigidbody2D YellowMachine;
@@ -16,18 +18,33 @@ public class PlayerMachineSpawn : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R))
         {
-            
-            Instantiate(RedMachine, transform.position, Quaternion.identity);
+            redEnergy = GetComponent<PlayerMovement>().redEnergy;
+            if (redEnergy >= 3)
+            {
+                Instantiate(RedMachine, transform.position, Quaternion.identity);
+                redEnergy -= 3;
+                GetComponent<PlayerMovement>().redEnergy = redEnergy;
+            }
         }
         if (Input.GetKeyDown(KeyCode.T))
         {
-
-            Instantiate(BlueMachine, transform.position, Quaternion.identity);
+            blueEnergy = GetComponent<PlayerMovement>().blueEnergy;
+            if (blueEnergy >= 3)
+            {
+                Instantiate(BlueMachine, transform.position, Quaternion.identity);
+                blueEnergy -= 3;
+                GetComponent<PlayerMovement>().blueEnergy = blueEnergy;
+            }
         }
         if (Input.GetKeyDown(KeyCode.Y))
         {
-
-            Instantiate(YellowMachine, transform.position, Quaternion.identity);
+            yellowEnergy = GetComponent<PlayerMovement>().yellowEnergy;
+            if (yellowEnergy >= 3)
+            {
+                Instantiate(YellowMachine, transform.position, Quaternion.identity);
+                yellowEnergy -= 3;
+                GetComponent<PlayerMovement>().yellowEnergy = yellowEnergy;
+            }
         }
     }
 }

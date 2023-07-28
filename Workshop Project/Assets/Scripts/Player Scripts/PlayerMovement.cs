@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public int blueEnergy = 0;
     [SerializeField] public int yellowEnergy = 0;
 
-
     // Update is called once per frame
     void Update()
     {

@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int currentHP = 3;
     [SerializeField] int damage = 1;
     [SerializeField] EnemyStatusBar EnemyHPBar;
+  
 
 
 
@@ -61,5 +62,6 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
         EnemyHPBar.SetState(currentHP, maxHP);
     }
-    
+
+   
 }

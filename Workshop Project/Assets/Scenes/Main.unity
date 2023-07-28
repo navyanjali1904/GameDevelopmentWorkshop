@@ -564,9 +564,9 @@ MonoBehaviour:
   PlayerSpeed: 5
   RB: {fileID: 1413817779}
   Movement: {x: 0, y: 0}
-  redEnergy: 0
-  blueEnergy: 0
-  yellowEnergy: 0
+  redEnergy: 3
+  blueEnergy: 3
+  yellowEnergy: 3
 --- !u!212 &1413817781
 SpriteRenderer:
   m_ObjectHideFlags: 0
