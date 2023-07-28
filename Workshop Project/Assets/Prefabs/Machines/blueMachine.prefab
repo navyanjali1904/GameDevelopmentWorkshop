@@ -119,6 +119,10 @@ PrefabInstance:
       value: BulletShooter -  red
       objectReference: {fileID: 0}
     - target: {fileID: 4514369525399661176, guid: 6b9278f0d57173c4baa2d3b44c9dd69d, type: 3}
+      propertyPath: range
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4514369525399661176, guid: 6b9278f0d57173c4baa2d3b44c9dd69d, type: 3}
       propertyPath: enemyTag
       value: blueEnemy
       objectReference: {fileID: 0}
