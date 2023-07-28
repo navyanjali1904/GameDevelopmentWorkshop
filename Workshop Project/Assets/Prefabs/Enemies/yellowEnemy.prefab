@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 6667445095040818644}
   - component: {fileID: 3336406247953142372}
   - component: {fileID: 6011409954386730116}
+  - component: {fileID: 1953692423574922454}
   m_Layer: 0
   m_Name: yellowEnemy
   m_TagString: yellowEnemy
@@ -233,7 +234,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &6011409954386730116
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -251,6 +252,19 @@ MonoBehaviour:
   currentHP: 3
   damage: 1
   EnemyHPBar: {fileID: 8108678808758531315}
+--- !u!114 &1953692423574922454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1975670895886894552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d279592383eb85440b3c6c50ff3560e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItemPrefab: {fileID: 472682856192114556, guid: 5350727f6c5fafb4aa70e62ff2e0005f, type: 3}
 --- !u!1 &6149477351228273792
 GameObject:
   m_ObjectHideFlags: 0
