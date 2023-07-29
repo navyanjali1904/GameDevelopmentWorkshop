@@ -8,6 +8,8 @@ TagManager:
   - redEnemy
   - blueEnemy
   - yellowEnemy
+  - Machine
+  - machine
   layers:
   - Default
   - TransparentFX

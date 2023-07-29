@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class WorldColour : MonoBehaviour
 {
+    
+    public GameObject ground;
     public GameObject RedMachine;
     public GameObject BlueMachine;
     public GameObject YellowMachine;
+
+
+
 
     void Update()
     {
@@ -16,30 +21,33 @@ public class WorldColour : MonoBehaviour
             Color redColor = new Color(1f, 0f, 0f, 1f);
 
             // Get the SpriteRenderer component from the RedMachine GameObject
-            SpriteRenderer redSpriteRenderer = GetComponent<SpriteRenderer>();
+            SpriteRenderer redSpriteRenderer = ground.GetComponent<SpriteRenderer>();
+            redSpriteRenderer.color = redColor;
+            RedMachine.GetComponent<MachineShoot>().enabled = true;
+            BlueMachine.GetComponent<MachineShoot>().enabled = false;
+            YellowMachine.GetComponent<MachineShoot>().enabled = false;
+
+
 
             // Set the color of the SpriteRenderer to red
-            redSpriteRenderer.color = redColor;
 
-            RedMachine.SetActive(true);
-            BlueMachine.SetActive(false);
-            YellowMachine.SetActive(false);
         }
 
-        if (Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             // Create a new Color object for "Blue"
             Color blueColor = new Color(0f, 0f, 1f, 1f);
 
             // Get the SpriteRenderer component from the BlueMachine GameObject
-            SpriteRenderer blueSpriteRenderer = GetComponent<SpriteRenderer>();
+            SpriteRenderer blueSpriteRenderer = ground.GetComponent<SpriteRenderer>();
+            blueSpriteRenderer.color = blueColor;
+            RedMachine.GetComponent<MachineShoot>().enabled = false;
+            BlueMachine.GetComponent<MachineShoot>().enabled = true;
+            YellowMachine.GetComponent<MachineShoot>().enabled = true;
+
 
             // Set the color of the SpriteRenderer to blue
-            blueSpriteRenderer.color = blueColor;
 
-            RedMachine.SetActive(false);
-            BlueMachine.SetActive(true);
-            YellowMachine.SetActive(false);
         }
 
         if (Input.GetKeyDown(KeyCode.E))
@@ -48,14 +56,14 @@ public class WorldColour : MonoBehaviour
             Color yellowColor = new Color(1f, 1f, 0f, 1f);
 
             // Get the SpriteRenderer component from the YellowMachine GameObject
-            SpriteRenderer yellowSpriteRenderer = GetComponent<SpriteRenderer>();
+            SpriteRenderer yellowSpriteRenderer = ground.GetComponent<SpriteRenderer>();
 
             // Set the color of the SpriteRenderer to yellow
             yellowSpriteRenderer.color = yellowColor;
+            RedMachine.GetComponent<MachineShoot>().enabled = false;
+            BlueMachine.GetComponent<MachineShoot>().enabled = false;
+            YellowMachine.GetComponent<MachineShoot>().enabled = true;
 
-            RedMachine.SetActive(false);
-            BlueMachine.SetActive(false);
-            YellowMachine.SetActive(true);
         }
     }
 }

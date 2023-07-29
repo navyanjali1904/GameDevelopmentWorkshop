@@ -19,7 +19,7 @@ public class MachineShoot : MonoBehaviour
 
     void Start()
     {
-        //   InvokeRepeating("UpdateTarget", 0f, 0.5f);
+        
     }
 
 
@@ -57,7 +57,7 @@ public class MachineShoot : MonoBehaviour
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
-        float shortestDistance = Mathf.Infinity;
+        float shortestDistance = Mathf.Infinity; ;
 
         GameObject nearestEnemy = null;
 
