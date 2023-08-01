@@ -15,11 +15,13 @@ public class PlayerMachineSpawn : MonoBehaviour
     public Rigidbody2D BlueMachine;
     public GameObject ground;
     public PlayerEnergyPickup PlayerEnergyPickup;
+    public WorldColour worldColour;
     private void Start()
     {
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
         PlayerEnergyPickup = playerObject.GetComponent<PlayerEnergyPickup>();
+        worldColour = playerObject.GetComponent<WorldColour>();
     }
 
     void Update()
@@ -51,17 +53,17 @@ public class PlayerMachineSpawn : MonoBehaviour
             }
 
             // Instantiate the new machine if the player is not too close to any existing machine
-            if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().color == new Color(1f, 0f, 0f, 1f) && PlayerEnergyPickup.RedEnergyCount > 19)
+            if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().sprite == worldColour.RedSprite && PlayerEnergyPickup.RedEnergyCount > 19)
             {
                 Instantiate(RedMachine, transform.position, Quaternion.identity);
                 PlayerEnergyPickup.RedEnergyCount -=  20;
             }
-            else if (Input.GetKeyDown(KeyCode.S) && ground.GetComponent<SpriteRenderer>().color == new Color(0f, 0f, 1f, 1f) && PlayerEnergyPickup.BlueEnetgyCount > 19)
+            else if (Input.GetKeyDown(KeyCode.S) && ground.GetComponent<SpriteRenderer>().sprite == worldColour.BlueSprite && PlayerEnergyPickup.BlueEnergyCount > 19)
             {
                 Instantiate(BlueMachine, transform.position, Quaternion.identity);
-                PlayerEnergyPickup.BlueEnetgyCount -= 20;
+                PlayerEnergyPickup.BlueEnergyCount -= 20;
             }
-            else if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().color == new Color(1f, 1f, 0f, 1f) && PlayerEnergyPickup.YellowEnergyCount > 19)
+            else if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().sprite == worldColour.YellowSprite && PlayerEnergyPickup.YellowEnergyCount > 19)
             {
                 Instantiate(YellowMachine, transform.position, Quaternion.identity);
                 PlayerEnergyPickup.YellowEnergyCount -= 20;

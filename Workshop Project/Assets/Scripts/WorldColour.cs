@@ -9,6 +9,9 @@ public class WorldColour : MonoBehaviour
     public GameObject RedMachine;
     public GameObject BlueMachine;
     public GameObject YellowMachine;
+    public Sprite RedSprite;
+    public Sprite BlueSprite;
+    public Sprite YellowSprite; 
 
 
 
@@ -18,11 +21,11 @@ public class WorldColour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Q))
         {
             // Create a new Color object for "Red"
-            Color redColor = new Color(1f, 0f, 0f, 1f);
+            //Color redColor = new Color(1f, 0f, 0f, 1f);
 
             // Get the SpriteRenderer component from the RedMachine GameObject
             SpriteRenderer redSpriteRenderer = ground.GetComponent<SpriteRenderer>();
-            redSpriteRenderer.color = redColor;
+            redSpriteRenderer.sprite = RedSprite;
             RedMachine.GetComponent<MachineShoot>().enabled = true;
             BlueMachine.GetComponent<MachineShoot>().enabled = false;
             YellowMachine.GetComponent<MachineShoot>().enabled = false;
@@ -40,7 +43,7 @@ public class WorldColour : MonoBehaviour
 
             // Get the SpriteRenderer component from the BlueMachine GameObject
             SpriteRenderer blueSpriteRenderer = ground.GetComponent<SpriteRenderer>();
-            blueSpriteRenderer.color = blueColor;
+            blueSpriteRenderer.sprite = BlueSprite;
             RedMachine.GetComponent<MachineShoot>().enabled = false;
             BlueMachine.GetComponent<MachineShoot>().enabled = true;
             YellowMachine.GetComponent<MachineShoot>().enabled = true;
@@ -59,7 +62,7 @@ public class WorldColour : MonoBehaviour
             SpriteRenderer yellowSpriteRenderer = ground.GetComponent<SpriteRenderer>();
 
             // Set the color of the SpriteRenderer to yellow
-            yellowSpriteRenderer.color = yellowColor;
+            yellowSpriteRenderer.sprite = YellowSprite;
             RedMachine.GetComponent<MachineShoot>().enabled = false;
             BlueMachine.GetComponent<MachineShoot>().enabled = false;
             YellowMachine.GetComponent<MachineShoot>().enabled = true;

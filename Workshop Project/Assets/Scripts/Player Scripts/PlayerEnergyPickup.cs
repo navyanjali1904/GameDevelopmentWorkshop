@@ -10,7 +10,7 @@ public class PlayerEnergyPickup : MonoBehaviour
     public List<string> BlueEnergy;
     public List<string> YellowEnergy;
     public int RedEnergyCount = 50;
-    public int BlueEnetgyCount = 50;
+    public int BlueEnergyCount = 50;
     public int YellowEnergyCount = 50;
     public string itemtype;
 
@@ -38,7 +38,7 @@ public class PlayerEnergyPickup : MonoBehaviour
                 
                 BlueEnergy.Add(itemtype);
                 inventory.Add(itemtype);
-                BlueEnetgyCount += 2;
+                BlueEnergyCount += 2;
 
 
             }

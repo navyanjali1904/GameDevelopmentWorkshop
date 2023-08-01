@@ -1,57 +1,57 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.Linq.Expressions;
-using System.Security.Cryptography;
 using UnityEngine;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class EnemiesManager : MonoBehaviour
 {
-    [SerializeField] GameObject redEnemy;
-    [SerializeField] GameObject blueEnemy;
-    [SerializeField] GameObject yellowEnemy;
-    [SerializeField] Vector2 spawnArea;
-    [SerializeField] float spawnTimer;
-    [SerializeField] GameObject objective;
-    float timer;
-    
-        void Update()
+    public GameObject[] enemyPrefabs;
+    public Vector2 spawnArea;
+    public float spawnTimer = 2f;
+    public float timeBetweenWaves = 20f;
+    public int enemiesPerWave = 5;
+    public GameObject objective;
+
+    public int waveIndex = 1;
+    private float countdown = 5f;
+    private float timer;
+
+    private void Start()
+    {
+        StartNextWave();
+    }
+
+    private void Update()
+    {
+        countdown -= Time.deltaTime;
+        if (countdown <= 0f)
         {
-            timer -= Time.deltaTime;
-            if (timer < 0f)
-            {
-                SpawnEnemy();
-                timer = spawnTimer;
-            }
+            StartCoroutine(SpawnWave());
+            countdown = timeBetweenWaves;
         }
+    }
 
-        void SpawnEnemy()
+    private IEnumerator SpawnWave()
+    {
+        waveIndex++;
+        for (int i = 0; i < waveIndex * 5; i++)
         {
-
-            Vector3 position = new Vector3(UnityEngine.Random.Range(-spawnArea.x, spawnArea.x), UnityEngine.Random.Range(-spawnArea.y, spawnArea.y), 0f);
-
-            int randomNumberGenerator = UnityEngine.Random.Range(0, 100);
-            if (randomNumberGenerator <= 33)
-            {
-                GameObject newEnemy = Instantiate(redEnemy);
-                newEnemy.transform.position = position;
-                newEnemy.GetComponent<Enemy>().SetTarget(objective);
-            }
-            if (randomNumberGenerator > 33 && randomNumberGenerator <= 67)
-            {
-                GameObject newEnemy = Instantiate(blueEnemy);
-                newEnemy.transform.position = position;
-                newEnemy.GetComponent<Enemy>().SetTarget(objective);
-            }
-            if (randomNumberGenerator > 67 && randomNumberGenerator < 100)
-            {
-                GameObject newEnemy = Instantiate(yellowEnemy);
-                newEnemy.transform.position = position;
-                newEnemy.GetComponent<Enemy>().SetTarget(objective);
-            }
-            Debug.Log("Enemy Spawned");
+            SpawnEnemy();
+            yield return new WaitForSeconds(spawnTimer);
         }
+    }
 
+    private void SpawnEnemy()
+    {
+        Vector3 position = new Vector3(Random.Range(-spawnArea.x, spawnArea.x), Random.Range(-spawnArea.y, spawnArea.y), 0f);
+        int randomIndex = Random.Range(0, enemyPrefabs.Length);
+        GameObject newEnemy = Instantiate(enemyPrefabs[randomIndex], position, Quaternion.identity);
+        newEnemy.GetComponent<Enemy>().SetTarget(objective);
+        Debug.Log("Enemy Spawned");
+    }
+
+    private void StartNextWave()
+    {
+        waveIndex = 0;
+        countdown = timeBetweenWaves;
+        Debug.Log("Starting Wave " + (waveIndex + 1));
+    }
 }
