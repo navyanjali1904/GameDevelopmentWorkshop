@@ -8,6 +8,12 @@ TagManager:
   - redEnemy
   - blueEnemy
   - yellowEnemy
+  - Machine
+  - machine
+  - collectable
+  - RUI
+  - BUI
+  - YUI
   layers:
   - Default
   - TransparentFX

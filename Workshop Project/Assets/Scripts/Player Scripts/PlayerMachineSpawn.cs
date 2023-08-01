@@ -6,45 +6,73 @@ public class PlayerMachineSpawn : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    private int redEnergy;
-    private int blueEnergy;
-    private int yellowEnergy;
-    // Update is called once per frame
+    public GameObject[] Allobject;
+    public GameObject nearestOBJ;
+    public float nearestDistance = 50;
+    public float minimumDistanceThreshold = 8f;
     public Rigidbody2D RedMachine;
     public Rigidbody2D YellowMachine;
     public Rigidbody2D BlueMachine;
+    public GameObject ground;
+    public PlayerEnergyPickup PlayerEnergyPickup;
+    public WorldColour worldColour;
+    private void Start()
+    {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+
+        PlayerEnergyPickup = playerObject.GetComponent<PlayerEnergyPickup>();
+        worldColour = playerObject.GetComponent<WorldColour>();
+    }
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        // Find the nearest machine and update nearestOBJ and nearestDistance
+        Allobject = GameObject.FindGameObjectsWithTag("Machine");
+        nearestDistance = 50; // Reset nearestDistance to a high value
+
+        for (int i = 0; i < Allobject.Length; i++)
         {
-            redEnergy = GetComponent<PlayerMovement>().redEnergy;
-            if (redEnergy >= 3)
+            float distance = Vector3.Distance(this.transform.position, Allobject[i].transform.position);
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearestOBJ = Allobject[i];
+            }
+        }
+
+        // Check if the player is close to the nearest machine and prevent instantiation if true
+
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+
+            if (nearestDistance < minimumDistanceThreshold)
+            {
+                Debug.Log("Too close to an existing machine. Cannot place a new one.");
+                return; // Prevent instantiation of the new machine
+            }
+
+            // Instantiate the new machine if the player is not too close to any existing machine
+            if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().sprite == worldColour.RedSprite && PlayerEnergyPickup.RedEnergyCount > 19)
             {
                 Instantiate(RedMachine, transform.position, Quaternion.identity);
-                redEnergy -= 3;
-                GetComponent<PlayerMovement>().redEnergy = redEnergy;
+                PlayerEnergyPickup.RedEnergyCount -=  20;
             }
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            blueEnergy = GetComponent<PlayerMovement>().blueEnergy;
-            if (blueEnergy >= 3)
+            else if (Input.GetKeyDown(KeyCode.S) && ground.GetComponent<SpriteRenderer>().sprite == worldColour.BlueSprite && PlayerEnergyPickup.BlueEnergyCount > 19)
             {
                 Instantiate(BlueMachine, transform.position, Quaternion.identity);
-                blueEnergy -= 3;
-                GetComponent<PlayerMovement>().blueEnergy = blueEnergy;
+                PlayerEnergyPickup.BlueEnergyCount -= 20;
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            yellowEnergy = GetComponent<PlayerMovement>().yellowEnergy;
-            if (yellowEnergy >= 3)
+            else if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().sprite == worldColour.YellowSprite && PlayerEnergyPickup.YellowEnergyCount > 19)
             {
                 Instantiate(YellowMachine, transform.position, Quaternion.identity);
-                yellowEnergy -= 3;
-                GetComponent<PlayerMovement>().yellowEnergy = yellowEnergy;
+                PlayerEnergyPickup.YellowEnergyCount -= 20;
+            }
+            else
+            {
+                Debug.Log("Cannont plant machine. Check your energy kevel and nearby machines"); 
             }
         }
+
     }
 }

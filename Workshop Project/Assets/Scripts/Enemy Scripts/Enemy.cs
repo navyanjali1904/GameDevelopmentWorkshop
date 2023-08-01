@@ -14,7 +14,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int currentHP = 3;
     [SerializeField] int damage = 1;
     [SerializeField] EnemyStatusBar EnemyHPBar;
-  
+
+    
+    [Range(0f, 1f)]
+    public float chance = 0.6f;
+    public GameObject[] Energies;
+
 
 
 
@@ -59,9 +64,30 @@ public class Enemy : MonoBehaviour
     {
         currentHP -= damage;
         if (currentHP < 1)
+        {
             Destroy(gameObject);
+            DropEnergy();
+        }
+            
+
         EnemyHPBar.SetState(currentHP, maxHP);
     }
+    private void DropEnergy()
 
-   
+    {
+        if (Random.value < chance && Energies.Length > 0)
+        {
+            int RandomIndex = Random.Range(0, Energies.Length);
+            {
+                Transform energyPosition = Instantiate(Energies[RandomIndex]).transform;
+                energyPosition.position = transform.position;
+            }
+
+        }
+
+
+
+    }
+
+
 }
