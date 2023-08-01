@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 472682856192114553}
   - component: {fileID: 472682856192114558}
   - component: {fileID: 472682856192114552}
+  - component: {fileID: 5114871301653127194}
   m_Layer: 0
   m_Name: blueEnergy
-  m_TagString: Untagged
+  m_TagString: collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -123,3 +124,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.5
+--- !u!114 &5114871301653127194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472682856192114556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a43fb31391ef540821ae8d1aaa343f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemtype: blue energy

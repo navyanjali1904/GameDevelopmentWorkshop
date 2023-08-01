@@ -14,10 +14,12 @@ public class PlayerMachineSpawn : MonoBehaviour
     public Rigidbody2D YellowMachine;
     public Rigidbody2D BlueMachine;
     public GameObject ground;
-
+    public PlayerEnergyPickup PlayerEnergyPickup;
     private void Start()
     {
+        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 
+        PlayerEnergyPickup = playerObject.GetComponent<PlayerEnergyPickup>();
     }
 
     void Update()
@@ -49,17 +51,24 @@ public class PlayerMachineSpawn : MonoBehaviour
             }
 
             // Instantiate the new machine if the player is not too close to any existing machine
-            if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().color == new Color(1f, 0f, 0f, 1f))
+            if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().color == new Color(1f, 0f, 0f, 1f) && PlayerEnergyPickup.RedEnergyCount > 19)
             {
                 Instantiate(RedMachine, transform.position, Quaternion.identity);
+                PlayerEnergyPickup.RedEnergyCount -=  20;
             }
-            else if (Input.GetKeyDown(KeyCode.S) && ground.GetComponent<SpriteRenderer>().color == new Color(0f, 0f, 1f, 1f))
+            else if (Input.GetKeyDown(KeyCode.S) && ground.GetComponent<SpriteRenderer>().color == new Color(0f, 0f, 1f, 1f) && PlayerEnergyPickup.BlueEnetgyCount > 19)
             {
                 Instantiate(BlueMachine, transform.position, Quaternion.identity);
+                PlayerEnergyPickup.BlueEnetgyCount -= 20;
             }
-            else if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().color == new Color(1f, 1f, 0f, 1f))
+            else if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().color == new Color(1f, 1f, 0f, 1f) && PlayerEnergyPickup.YellowEnergyCount > 19)
             {
                 Instantiate(YellowMachine, transform.position, Quaternion.identity);
+                PlayerEnergyPickup.YellowEnergyCount -= 20;
+            }
+            else
+            {
+                Debug.Log("Cannont plant machine. Check your energy kevel and nearby machines"); 
             }
         }
 

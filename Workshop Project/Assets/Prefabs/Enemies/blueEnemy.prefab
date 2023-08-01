@@ -281,14 +281,11 @@ MonoBehaviour:
   currentHP: 3
   damage: 1
   EnemyHPBar: {fileID: 8108678808758531315}
-  RedEnergy: {fileID: 472682856192114556, guid: dd0923989264678489a1f8f517da8e8d, type: 3}
-  BlueEnergy: {fileID: 472682856192114556, guid: 326864135d06b9b45add9e637b2ab461, type: 3}
-  YellowEnergy: {fileID: 472682856192114556, guid: 5350727f6c5fafb4aa70e62ff2e0005f, type: 3}
-  chance: 0.604
+  chance: 0.944
   Energies:
+  - {fileID: 472682856192114556, guid: 326864135d06b9b45add9e637b2ab461, type: 3}
   - {fileID: 472682856192114556, guid: 5350727f6c5fafb4aa70e62ff2e0005f, type: 3}
   - {fileID: 472682856192114556, guid: dd0923989264678489a1f8f517da8e8d, type: 3}
-  - {fileID: 472682856192114556, guid: 326864135d06b9b45add9e637b2ab461, type: 3}
 --- !u!1 &6149477351228273792
 GameObject:
   m_ObjectHideFlags: 0
