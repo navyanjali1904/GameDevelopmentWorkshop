@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CheomaUIObjectHealth_0: 1763335994240047304
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

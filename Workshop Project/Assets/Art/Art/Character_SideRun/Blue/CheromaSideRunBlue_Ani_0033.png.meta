@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CheromaSideRunBlue_Ani_0033_0: -2161598655446789874
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

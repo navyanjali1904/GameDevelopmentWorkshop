@@ -178,7 +178,10 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PropAssertsCrystal1_0: -5346574640877912678
+      PropAssertsCrystal1_1: 1037483152234298196
+      PropAssertsCrystal1_2: -67629800947315876
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

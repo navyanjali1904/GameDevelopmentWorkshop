@@ -8,6 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public float PlayerSpeed = 5f;
     public Rigidbody2D RB;
     public Vector2 Movement;
+
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
+    private float _horizontal;
+    private float _vertical;
+
     [SerializeField] public int redEnergy = 0;
     [SerializeField] public int blueEnergy = 0;
     [SerializeField] public int yellowEnergy = 0;
@@ -17,7 +23,29 @@ public class PlayerMovement : MonoBehaviour
     {
         Movement.x = Input.GetAxisRaw("Horizontal");
         Movement.y = Input.GetAxisRaw("Vertical");
+        FlipSprite();
+        SetWalkAnimation();
     }
+
+
+    private void Awake()
+    {
+        _animator = GetComponent<Animator>(); // needed for telling the animator to change values
+        _spriteRenderer = GetComponent<SpriteRenderer>(); // needed for flipping sprite to face direction
+    }
+
+    private void FlipSprite()
+    {
+        // flip the sprite to face the left when moving left
+        if (Movement.x < 0)
+            _spriteRenderer.flipX = true;
+
+        // flip the sprite to face right when moving right
+        if (Movement.x > 0)
+            _spriteRenderer.flipX = false;
+    }
+
+
 
     private void FixedUpdate()
     {
@@ -36,5 +64,15 @@ public class PlayerMovement : MonoBehaviour
     public void yellowCharge(int amount)
     {
         yellowEnergy += amount;
+    }
+
+    private void SetWalkAnimation()
+    {
+
+        if (Mathf.Abs(_horizontal) >= Movement.x || Mathf.Abs(_vertical) >= Movement.y)
+            _animator.SetBool("isWalking", true);
+        if (Mathf.Abs(_horizontal) < Movement.x && Mathf.Abs(_vertical) < Movement.y)
+            _animator.SetBool("isWalking", false);
+
     }
 }

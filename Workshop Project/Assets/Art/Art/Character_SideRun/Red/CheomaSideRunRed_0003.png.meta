@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CheomaSideRunRed_0003_0: -6761368738306836236
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

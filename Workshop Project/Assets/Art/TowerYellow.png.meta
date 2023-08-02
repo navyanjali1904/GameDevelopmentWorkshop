@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      TowerYellow_0: 6173721093295115506
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

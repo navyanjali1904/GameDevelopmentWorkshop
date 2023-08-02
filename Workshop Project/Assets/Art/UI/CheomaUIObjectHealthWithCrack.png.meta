@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      CheomaUIObjectHealthWithCrack_0: 2691186850197792221
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PropAssertsHalfBrokenGear_0: -3012513622085584170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

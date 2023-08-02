@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PropAssertsBrokenGear_0: 8158796941334890060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

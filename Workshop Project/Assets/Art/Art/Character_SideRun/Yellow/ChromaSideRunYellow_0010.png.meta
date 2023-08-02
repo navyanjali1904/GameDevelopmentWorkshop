@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      ChromaSideRunYellow_0010_0: -5256820498970990548
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

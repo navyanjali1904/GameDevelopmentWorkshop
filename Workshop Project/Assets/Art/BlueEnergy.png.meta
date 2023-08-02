@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      BlueEnergy_0: 7369706858103611318
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
