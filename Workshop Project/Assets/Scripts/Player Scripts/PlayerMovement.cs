@@ -24,7 +24,6 @@ public class PlayerMovement : MonoBehaviour
         Movement.x = Input.GetAxisRaw("Horizontal");
         Movement.y = Input.GetAxisRaw("Vertical");
         FlipSprite();
-        SetWalkAnimation();
     }
 
 
@@ -43,6 +42,26 @@ public class PlayerMovement : MonoBehaviour
         // flip the sprite to face right when moving right
         if (Movement.x > 0)
             _spriteRenderer.flipX = false;
+
+        if (Movement.x < 0)
+            _spriteRenderer.flipX = true;
+
+        // flip the sprite to face right when moving right
+
+        if ((Movement.x == 0) && (Movement.y == 0))
+        {
+            _animator.SetBool("isWalking", false);
+        }
+        if ((Movement.x > 0) || (Movement.x < 0))
+            {
+            _animator.SetBool("isWalking", true);
+        }
+        if ((Movement.y > 0) || (Movement.y < 0))
+        {
+            _animator.SetBool("isWalking", true);
+        }
+
+
     }
 
 
@@ -66,13 +85,5 @@ public class PlayerMovement : MonoBehaviour
         yellowEnergy += amount;
     }
 
-    private void SetWalkAnimation()
-    {
 
-        if (Mathf.Abs(_horizontal) >= Movement.x || Mathf.Abs(_vertical) >= Movement.y)
-            _animator.SetBool("isWalking", true);
-        if (Mathf.Abs(_horizontal) < Movement.x && Mathf.Abs(_vertical) < Movement.y)
-            _animator.SetBool("isWalking", false);
-
-    }
 }
