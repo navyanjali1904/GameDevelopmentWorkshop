@@ -15,6 +15,7 @@ public class MachineShoot : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
     public GameObject bulletPrefab;
+    
 
 
     void Start()
