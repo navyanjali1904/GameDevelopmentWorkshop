@@ -15,28 +15,33 @@ public class MachineShoot : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
     public GameObject bulletPrefab;
+    
+  
+
+    
 
 
     void Start()
     {
+        
         
     }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            Shoot();
-        }
+        
 
         UpdateTarget();
+        
 
-        if (fireCountdown <= 0)
-        {
-            Shoot();
-            fireCountdown = 1f / fireRate;
-        }
+            if (fireCountdown <= 0)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
+        
+        
 
         fireCountdown -= Time.deltaTime;
     }

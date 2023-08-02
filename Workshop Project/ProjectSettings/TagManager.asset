@@ -14,6 +14,10 @@ TagManager:
   - RUI
   - BUI
   - YUI
+  - gameManager
+  - RM
+  - BM
+  - YM
   layers:
   - Default
   - TransparentFX
