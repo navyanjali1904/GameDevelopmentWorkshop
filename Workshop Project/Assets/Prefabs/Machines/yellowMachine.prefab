@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4318460932172943210}
   - component: {fileID: 699575462431591564}
   - component: {fileID: 2322467389694103452}
+  - component: {fileID: 2596929867312229965}
   m_Layer: 0
   m_Name: yellowMachine
   m_TagString: Machine
@@ -115,6 +116,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2596929867312229965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940196010816089777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d9558daad310b4c8bfd02e2531eae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  child: {fileID: 4460042234368606322}
 --- !u!1001 &1516949012069802009
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -212,6 +226,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+--- !u!1 &4460042234368606322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2947616809362858091, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+  m_PrefabInstance: {fileID: 1516949012069802009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9065068691716213602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7548278048933440379, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}

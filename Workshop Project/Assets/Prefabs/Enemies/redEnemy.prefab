@@ -237,9 +237,9 @@ MonoBehaviour:
   EnemyHPBar: {fileID: 8108678808758531315}
   chance: 0.808
   Energies:
-  - {fileID: 472682856192114556, guid: 5350727f6c5fafb4aa70e62ff2e0005f, type: 3}
-  - {fileID: 472682856192114556, guid: dd0923989264678489a1f8f517da8e8d, type: 3}
-  - {fileID: 472682856192114556, guid: 326864135d06b9b45add9e637b2ab461, type: 3}
+  - {fileID: 472682856192114556, guid: 7b014694c226a5d428bf6774eb95e487, type: 3}
+  - {fileID: 472682856192114556, guid: af3c7194f5de7334b939f25bce7ce2ff, type: 3}
+  - {fileID: 472682856192114556, guid: c5bc12ce4db469c418f3335d14c501ad, type: 3}
 --- !u!61 &4263737008052199539
 BoxCollider2D:
   m_ObjectHideFlags: 0

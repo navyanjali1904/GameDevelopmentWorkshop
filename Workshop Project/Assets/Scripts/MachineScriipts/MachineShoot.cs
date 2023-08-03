@@ -16,12 +16,7 @@ public class MachineShoot : MonoBehaviour
     private float fireCountdown = 0f;
     public GameObject bulletPrefab;
     
-<<<<<<< HEAD
-  
 
-    
-=======
->>>>>>> 32d3ace9f964fdbeb9839a6e12b5f3bdfb6ef6e4
 
 
     void Start()
