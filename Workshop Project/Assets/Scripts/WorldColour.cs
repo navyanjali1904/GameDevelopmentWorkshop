@@ -12,6 +12,7 @@ public class WorldColour : MonoBehaviour
     public Sprite RedSprite;
     public Sprite BlueSprite;
     public Sprite YellowSprite; 
+    public ChildScript childScript;
 
 
 
@@ -67,6 +68,9 @@ public class WorldColour : MonoBehaviour
             BlueMachine.GetComponent<MachineShoot>().enabled = false;
             YellowMachine.GetComponent<MachineShoot>().enabled = true;
 
+            Debug.Log("You are amazing");  
+
         }
     }
 }
+

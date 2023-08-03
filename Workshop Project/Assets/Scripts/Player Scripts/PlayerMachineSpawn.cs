@@ -53,20 +53,20 @@ public class PlayerMachineSpawn : MonoBehaviour
             }
 
             // Instantiate the new machine if the player is not too close to any existing machine
-            if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().sprite == worldColour.RedSprite && PlayerEnergyPickup.RedEnergyCount > 19)
+            if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().sprite == worldColour.RedSprite && PlayerEnergyPickup.RedEnergyCount > 9)
             {
                 Instantiate(RedMachine, transform.position, Quaternion.identity);
-                PlayerEnergyPickup.RedEnergyCount -=  20;
+                PlayerEnergyPickup.RedEnergyCount -= 10;
             }
-            else if (Input.GetKeyDown(KeyCode.S) && ground.GetComponent<SpriteRenderer>().sprite == worldColour.BlueSprite && PlayerEnergyPickup.BlueEnergyCount > 19)
+            else if (Input.GetKeyDown(KeyCode.S) && ground.GetComponent<SpriteRenderer>().sprite == worldColour.BlueSprite && PlayerEnergyPickup.BlueEnergyCount > 9)
             {
                 Instantiate(BlueMachine, transform.position, Quaternion.identity);
-                PlayerEnergyPickup.BlueEnergyCount -= 20;
+                PlayerEnergyPickup.BlueEnergyCount -= 10;
             }
-            else if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().sprite == worldColour.YellowSprite && PlayerEnergyPickup.YellowEnergyCount > 19)
+            else if (Input.GetKeyDown(KeyCode.S) &&  ground.GetComponent<SpriteRenderer>().sprite == worldColour.YellowSprite && PlayerEnergyPickup.YellowEnergyCount > 9)
             {
                 Instantiate(YellowMachine, transform.position, Quaternion.identity);
-                PlayerEnergyPickup.YellowEnergyCount -= 20;
+                PlayerEnergyPickup.YellowEnergyCount -= 10;
             }
             else
             {
