@@ -14,11 +14,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] public int currentHP = 3;
     [SerializeField] int damage = 1;
     [SerializeField] EnemyStatusBar EnemyHPBar;
+    public GameObject[] Energies;
 
-    
+
     [Range(0f, 1f)]
     public float chance = 0.6f;
-    public GameObject[] Energies;
+    public GameObject[] Machines ;
 
 
 
