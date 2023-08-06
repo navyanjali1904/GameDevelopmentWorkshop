@@ -4595,8 +4595,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefabs:
   - {fileID: 1975670895886894552, guid: 6ed24837f28ae8f43b0e9060998d608d, type: 3}
-  - {fileID: 1975670895886894552, guid: c464834d1a9938242a0b595d3f758d0a, type: 3}
-  - {fileID: 1975670895886894552, guid: f009be109cfbdc6419ba1f4e52fcf5f4, type: 3}
   spawnArea: {x: 40, y: 40}
   spawnTimer: 10
   timeBetweenWaves: 20
@@ -5196,7 +5194,7 @@ PrefabInstance:
     - target: {fileID: 7721973410289686605, guid: 3d46e513aa7070f4aad9e82c5ecad9a5, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 1823433307520837061, guid: 99a931ffac1f73f46a64792973118be6, type: 3}
+      objectReference: {fileID: 8449240525697324518, guid: 82dddfcbb94cfa34bafa0f1e61a9e5c4, type: 3}
     - target: {fileID: 8910803531802704178, guid: 3d46e513aa7070f4aad9e82c5ecad9a5, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0027
