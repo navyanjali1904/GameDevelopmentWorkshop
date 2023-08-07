@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 
 public class TutorialMaxLevel : MonoBehaviour
@@ -11,8 +11,7 @@ public class TutorialMaxLevel : MonoBehaviour
 
     public int WaveIndex;
     public GameObject canvasToEnable;
-    public float displayTime = 5f;
-    public float timer;
+    
     void Start()
     {
         canvasToEnable.SetActive(false);
@@ -23,28 +22,25 @@ public class TutorialMaxLevel : MonoBehaviour
     {
         WaveIndex = EnemiesManager.GetComponent<EnemiesManager>().waveIndex;
         
-        timer = displayTime;
-        if (WaveIndex > 1 && !canvasToEnable.activeSelf && timer >0)
+        
+        if (WaveIndex > 1 && !canvasToEnable.activeSelf)
         {
-            Debug.Log("redtutorial complete");
+          
+            Debug.Log("tutorial complete");
             canvasToEnable.SetActive(true);
-            timer = displayTime;
+           
+
 
         }
-        timer -= Time.deltaTime;
+
+       
 
         // If the timer has expired, load the next scene
-        if (timer <= 0f)
-        {
-            LoadNextScene();
-        }
-    }
 
-    void LoadNextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
     }
+
+    
 
 
 }
