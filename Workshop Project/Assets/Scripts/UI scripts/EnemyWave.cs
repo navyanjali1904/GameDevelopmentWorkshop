@@ -16,8 +16,8 @@ public class EnemyWave : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        string WaveIndex = EnemiesManager.GetComponent<EnemiesManager>().waveIndex.ToString();
+        int WaveIndex = EnemiesManager.GetComponent<EnemiesManager>().waveIndex ;
 
-        waveCounterUI.text = WaveIndex;
+        waveCounterUI.text = WaveIndex.ToString();
     }
 }
