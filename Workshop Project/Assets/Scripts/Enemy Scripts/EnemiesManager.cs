@@ -10,7 +10,7 @@ public class EnemiesManager : MonoBehaviour
     public int enemiesPerWave = 5;
     public GameObject objective;
 
-    public int waveIndex = 1;
+    public int waveIndex ;
     private float countdown = 5f;
     private float timer;
 
@@ -25,13 +25,14 @@ public class EnemiesManager : MonoBehaviour
         if (countdown <= 0f)
         {
             StartCoroutine(SpawnWave());
+            waveIndex++;
             countdown = timeBetweenWaves;
         }
     }
 
     private IEnumerator SpawnWave()
     {
-        waveIndex++;
+        
         for (int i = 0; i < waveIndex * 5; i++)
         {
             SpawnEnemy();
