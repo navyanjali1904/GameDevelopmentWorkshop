@@ -49,6 +49,13 @@ public class Enemy : MonoBehaviour
         {
             Attack();
         }
+        
+        /*
+        if (collision.gameObject.tag == "Pipe")
+        {
+            Vector3 direction = (targetDestination.position - transform.position).normalized;
+        }
+        */
     }
 
     private void Attack()
