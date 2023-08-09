@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 4318460932172943210}
   - component: {fileID: 699575462431591564}
   - component: {fileID: 2322467389694103452}
+  - component: {fileID: 2596929867312229965}
   m_Layer: 0
   m_Name: yellowMachine
-  m_TagString: Untagged
+  m_TagString: Machine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,14 +26,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7940196010816089777}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.993324, y: 1.464494, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 9065068691716213602}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &699575462431591564
 SpriteRenderer:
@@ -51,6 +52,8 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -75,8 +78,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.9995191, b: 0, a: 1}
+  m_Sprite: {fileID: 6173721093295115506, guid: b6a186125a8327949b5509394ffacccb, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,15 +106,35 @@ Rigidbody2D:
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &2596929867312229965
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940196010816089777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4d9558daad310b4c8bfd02e2531eae5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  child: {fileID: 4460042234368606322}
 --- !u!1001 &1516949012069802009
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
+    serializedVersion: 3
     m_TransformParent: {fileID: 4318460932172943210}
     m_Modifications:
     - target: {fileID: 2344433750830480932, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
@@ -119,9 +142,33 @@ PrefabInstance:
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2344433750830480932, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+      propertyPath: ground
+      value: 
+      objectReference: {fileID: 9139870354440068870, guid: 3d46e513aa7070f4aad9e82c5ecad9a5, type: 3}
+    - target: {fileID: 2344433750830480932, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
       propertyPath: enemyTag
       value: yellowEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2344433750830480932, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2344433750830480932, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+      propertyPath: redMachine
+      value: 
+      objectReference: {fileID: 2433882090533956169, guid: c3b0318b36f5df24fbcd79e5fef3b55f, type: 3}
+    - target: {fileID: 2344433750830480932, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+      propertyPath: blueMachine
+      value: 
+      objectReference: {fileID: 2433882090533956169, guid: 108e6559c57a0954ba89802d3bf5d6a5, type: 3}
+    - target: {fileID: 2344433750830480932, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 204919191695469203, guid: f88b2ad780f631f43aa412eb67ead371, type: 3}
+    - target: {fileID: 2344433750830480932, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+      propertyPath: yellowMachine
+      value: 
+      objectReference: {fileID: 7940196010816089777}
     - target: {fileID: 2947616809362858091, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
       propertyPath: m_Name
       value: BulletShooter -  yellow
@@ -175,7 +222,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+--- !u!1 &4460042234368606322 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2947616809362858091, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}
+  m_PrefabInstance: {fileID: 1516949012069802009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9065068691716213602 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7548278048933440379, guid: 0ec93689e0baf4b47a0788c3ab07121e, type: 3}

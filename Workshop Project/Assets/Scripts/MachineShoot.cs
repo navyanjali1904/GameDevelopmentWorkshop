@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,20 +18,20 @@ public class MachineShoot : MonoBehaviour
 
     void Start()
     {
-        //   InvokeRepeating("UpdateTarget", 0f, 0.5f);
+     //   InvokeRepeating("UpdateTarget", 0f, 0.5f);
     }
 
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
 
         UpdateTarget();
 
-        if (fireCountdown <= 0)
+        if(fireCountdown <= 0)
         {
             Shoot();
             fireCountdown = 1f / fireRate;
@@ -43,23 +42,23 @@ public class MachineShoot : MonoBehaviour
 
     public void Shoot()
     {
+       
+        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firepoint.position , Quaternion.Euler(0, 0, 0));
+        BulletVelocityScript bullet = bulletGO.GetComponent<BulletVelocityScript>(); 
 
-        GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firepoint.position, Quaternion.Euler(0, 0, 0));
-        BulletVelocityScript bullet = bulletGO.GetComponent<BulletVelocityScript>();
-
-        if (bullet != null)
+        if(bullet != null)
         {
-            bullet.Seek(target, enemyTag);
+            bullet.Seek(target);
         }
     }
 
-    void UpdateTarget()
+    void UpdateTarget ()
     {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
 
         float shortestDistance = Mathf.Infinity;
 
-        GameObject nearestEnemy = null;
+       GameObject nearestEnemy = null;
 
         foreach (GameObject enemy in enemies)
         {
@@ -69,10 +68,10 @@ public class MachineShoot : MonoBehaviour
                 shortestDistance = distanceToEnemy;
                 nearestEnemy = enemy;
             }
-
+   
         }
 
-
+        
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
@@ -80,5 +79,5 @@ public class MachineShoot : MonoBehaviour
     }
 
     //void OnTriggerEnter2D(Collider2D collider) => _myName.enabled = true;
-    //   void OnTriggerExit2D(Collider2D collider) => _myName.enabled = false;
+ //   void OnTriggerExit2D(Collider2D collider) => _myName.enabled = false;
 }
