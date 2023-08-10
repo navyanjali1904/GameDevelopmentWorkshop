@@ -23,7 +23,7 @@ public class TutorialMaxLevel : MonoBehaviour
         WaveIndex = EnemiesManager.GetComponent<EnemiesManager>().waveIndex;
         
         
-        if (WaveIndex > 1 && !canvasToEnable.activeSelf)
+        if (WaveIndex > 5 && !canvasToEnable.activeSelf)
         {
           
             Debug.Log("tutorial complete");
