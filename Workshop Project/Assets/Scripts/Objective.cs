@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
-using Unity.
+
 using UnityEngine.UI;
 
 public class Objective : MonoBehaviour
@@ -27,7 +27,7 @@ public class Objective : MonoBehaviour
         
         if (currentHp <= 0)
         {
-            UnityEngine.Debug.Log("Character is dead GAME OVER");
+            
         }
         hpBar.SetState(currentHp, maxHp);
     }

@@ -3,11 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MachineShoot : MonoBehaviour
+public class MachineShootRed : MonoBehaviour
 {
     public Transform firepoint;
+    
     public Rigidbody2D bullet;
-
+    
     public Transform target;
     public float range = 15f;
     public string enemyTag = "Enemy";
@@ -16,30 +17,29 @@ public class MachineShoot : MonoBehaviour
     private float fireCountdown = 0f;
     public GameObject bulletPrefab;
     
+    
+   
+   
+    public GameObject GameManager;
 
-
-
-    void Start()
-    {
-        
-        
-    }
-
+    
 
     void Update()
     {
-        
-
+        GameManager = GameObject.FindGameObjectWithTag("gameManager");
+    
+    
         UpdateTarget();
-        
+       
 
-            if (fireCountdown <= 0)
-            {
-                Shoot();
-                fireCountdown = 1f / fireRate;
-            }
-        
-        
+        if (fireCountdown <= 0 && GameManager.GetComponent<WorldColour>().isRed)
+        {
+            
+            Shoot();
+            
+            
+            fireCountdown = 1f / fireRate;
+        }
 
         fireCountdown -= Time.deltaTime;
     }

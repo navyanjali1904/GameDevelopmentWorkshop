@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChildScript : MonoBehaviour
+public class gameObjectref : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject child;
+    public GameObject bg; 
     void Start()
     {
         

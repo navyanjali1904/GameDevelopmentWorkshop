@@ -20,7 +20,7 @@ public class EnergyUpdateScript : MonoBehaviour
 
     }
 
-
+    
     private void Update()
     {
         // Access the RedEnergyCount value from the PlayerEnergyPickup script

@@ -10,19 +10,18 @@ public class PlayerMachineSpawn : MonoBehaviour
     public GameObject nearestOBJ;
     public float nearestDistance = 50;
     public float minimumDistanceThreshold = 8f;
-    public GameObject[] machines;
     
-    public Rigidbody2D RedMachineRB;
-    public Rigidbody2D YellowMachineRB;
-    public Rigidbody2D BlueMachineRB;
+    
+    public GameObject RedMachineRB;
+    public GameObject YellowMachineRB;
+    public GameObject BlueMachineRB;
     public GameObject ground;
     public PlayerEnergyPickup PlayerEnergyPickup;
     public WorldColour worldColour;
+     
     private void Start()
     {
-        machines[0] = RedMachineRB.gameObject;
-        machines[1] = BlueMachineRB.gameObject;
-        machines[2] = YellowMachineRB.gameObject;
+        
 
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
 

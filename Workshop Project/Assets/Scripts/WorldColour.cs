@@ -11,25 +11,30 @@ public class WorldColour : MonoBehaviour
     public GameObject YellowMachine;
     public Sprite RedSprite;
     public Sprite BlueSprite;
-    public Sprite YellowSprite; 
-    public ChildScript childScript;
-
+    public Sprite YellowSprite;
+    public bool isBlue;
+    public bool isRed; 
+    public bool isYellow;
+   
 
 
 
     void Update()
     {
+        ground = GameObject.FindGameObjectWithTag("ground");
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            // Create a new Color object for "Red"
-            //Color redColor = new Color(1f, 0f, 0f, 1f);
+            
+
 
             // Get the SpriteRenderer component from the RedMachine GameObject
             SpriteRenderer redSpriteRenderer = ground.GetComponent<SpriteRenderer>();
             redSpriteRenderer.sprite = RedSprite;
-            RedMachine.GetComponent<MachineShoot>().enabled = true;
-            BlueMachine.GetComponent<MachineShoot>().enabled = false;
-            YellowMachine.GetComponent<MachineShoot>().enabled = false;
+            isRed = true;
+            isBlue = false;
+            isYellow = false;
+           
+       
 
 
 
@@ -40,14 +45,17 @@ public class WorldColour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
         {
             // Create a new Color object for "Blue"
-            Color blueColor = new Color(0f, 0f, 1f, 1f);
+            
 
             // Get the SpriteRenderer component from the BlueMachine GameObject
             SpriteRenderer blueSpriteRenderer = ground.GetComponent<SpriteRenderer>();
             blueSpriteRenderer.sprite = BlueSprite;
-            RedMachine.GetComponent<MachineShoot>().enabled = false;
-            BlueMachine.GetComponent<MachineShoot>().enabled = true;
-            YellowMachine.GetComponent<MachineShoot>().enabled = true;
+            isRed = false;
+            isBlue = true;
+            isYellow = false;
+
+
+
 
 
             // Set the color of the SpriteRenderer to blue
@@ -57,18 +65,20 @@ public class WorldColour : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             // Create a new Color object for "Yellow"
-            Color yellowColor = new Color(1f, 1f, 0f, 1f);
+           
 
             // Get the SpriteRenderer component from the YellowMachine GameObject
             SpriteRenderer yellowSpriteRenderer = ground.GetComponent<SpriteRenderer>();
 
             // Set the color of the SpriteRenderer to yellow
             yellowSpriteRenderer.sprite = YellowSprite;
-            RedMachine.GetComponent<MachineShoot>().enabled = false;
-            BlueMachine.GetComponent<MachineShoot>().enabled = false;
-            YellowMachine.GetComponent<MachineShoot>().enabled = true;
 
-            Debug.Log("You are amazing");  
+            isRed = false;
+            isBlue = false;
+            isYellow = true;
+
+
+
 
         }
     }
