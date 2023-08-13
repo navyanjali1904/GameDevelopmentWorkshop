@@ -13,6 +13,7 @@ public class Objective : MonoBehaviour
     public GameObject ObjectiveHealth;
     public Sprite normalhealthbar;
     public Sprite crackedhealthbar;
+    Enemy enemy;
 
     public void TakeDamage(int damage)
     {

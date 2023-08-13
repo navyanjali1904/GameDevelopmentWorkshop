@@ -22,8 +22,8 @@ public class Enemy : MonoBehaviour
 
     [Range(0f, 1f)]
     public float chance = 0.6f;
-    public GameObject[] Machines ;
-    public float MinimumDistance= 8f;
+    public GameObject[] Machines;
+    public float MinimumDistance = 8f;
     public float DistancetoMachine;
     public GameObject machine;
 
@@ -38,15 +38,15 @@ public class Enemy : MonoBehaviour
         rgdbd2d = GetComponent<Rigidbody2D>();
     }
 
-    
+
 
     private void FixedUpdate()
     {
         GameObject[] machines = GameObject.FindGameObjectsWithTag("RM");
 
-        float shortestDistance = Mathf.Infinity; 
+        float shortestDistance = Mathf.Infinity;
 
-      
+
 
         foreach (GameObject machine in machines)
         {
@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
                 shortestDistance = DistancetoMachine;
                 targetGameobject = machine;
                 targetDestination = machine.transform;
-                
+
             }
             else
             {
@@ -95,9 +95,17 @@ public class Enemy : MonoBehaviour
             pipeAvoidance = true; // Enable pipe avoidance mode
         }
 
-        
+
     }
-   
+    private void Attack()
+    {
+        if (targetObjective == null)
+        {
+            targetObjective = targetGameobject.GetComponent<Objective>();
+        }
+
+        targetObjective.TakeDamage(damage);
+    }
 
 
 
@@ -109,7 +117,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             DropEnergy();
         }
-            
+
 
         EnemyHPBar.SetState(currentHP, maxHP);
     }
