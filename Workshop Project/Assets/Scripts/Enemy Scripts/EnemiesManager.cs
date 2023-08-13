@@ -45,7 +45,7 @@ public class EnemiesManager : MonoBehaviour
         Vector3 position = new Vector3(Random.Range(-spawnArea.x, spawnArea.x), Random.Range(-spawnArea.y, spawnArea.y), 0f);
         int randomIndex = Random.Range(0, enemyPrefabs.Length);
         GameObject newEnemy = Instantiate(enemyPrefabs[randomIndex], position, Quaternion.identity);
-        newEnemy.GetComponent<Enemy>().SetTarget(objective);
+        newEnemy.GetComponent<Enemy>(); 
         Debug.Log("Enemy Spawned");
     }
 

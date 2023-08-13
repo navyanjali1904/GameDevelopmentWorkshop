@@ -19,6 +19,7 @@ TagManager:
   - RedUI
   - YellowUI
   - BlueUI
+  - Pipe
   layers:
   - Default
   - TransparentFX
