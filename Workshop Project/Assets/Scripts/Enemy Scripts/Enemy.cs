@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Security.Cryptography;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,16 +10,22 @@ public class Enemy : MonoBehaviour
     Transform targetDestination;
     GameObject targetGameobject;
     Objective targetObjective;
+    public GameObject Objective;
     [SerializeField] float speed;
     [SerializeField] public int maxHP = 3;
     [SerializeField] public int currentHP = 3;
     [SerializeField] int damage = 1;
     [SerializeField] EnemyStatusBar EnemyHPBar;
+    public GameObject[] Energies;
+    public bool pipeAvoidance = false;
+    private Vector3 updatedTargetPosition;
 
-    
     [Range(0f, 1f)]
     public float chance = 0.6f;
-    public GameObject[] Energies;
+    public GameObject[] Machines;
+    public float MinimumDistance = 8f;
+    public float DistancetoMachine;
+    public GameObject machine;
 
 
 
@@ -27,6 +34,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+
         rgdbd2d = GetComponent<Rigidbody2D>();
     }
 
@@ -36,9 +44,41 @@ public class Enemy : MonoBehaviour
         targetDestination = target.transform;
     }
 
+
     private void FixedUpdate()
     {
+        GameObject[] machines = GameObject.FindGameObjectsWithTag("RM");
+
+        float shortestDistance = Mathf.Infinity;
+
+
+
+        foreach (GameObject machine in machines)
+        {
+            float DistancetoMachine = Vector3.Distance(machine.transform.position, transform.position);
+            if (DistancetoMachine < shortestDistance)
+            {
+                shortestDistance = DistancetoMachine;
+                targetGameobject = machine;
+                targetDestination = machine.transform;
+
+            }
+            else
+            {
+                Objective = GameObject.FindGameObjectWithTag("Finish");
+                targetGameobject = Objective;
+                targetDestination = Objective.transform;
+            }
+
+        }
+
         Vector3 direction = (targetDestination.position - transform.position).normalized;
+        if (pipeAvoidance)
+        {
+            // Use the direction with avoidance
+            direction = (updatedTargetPosition - transform.position).normalized;
+        }
+
         rgdbd2d.velocity = direction * speed;
     }
 
@@ -48,15 +88,20 @@ public class Enemy : MonoBehaviour
         {
             Attack();
         }
-        
-        /*
+
         if (collision.gameObject.tag == "Pipe")
         {
-            Vector3 direction = (targetDestination.position - transform.position).normalized;
-        }
-        */
-    }
+            Vector3 awayFromPipe = transform.position - collision.transform.position;
+            Vector3 offset = awayFromPipe.normalized * 0.5f; // Adjust the offset as needed
+            Vector3 newDirection = (targetDestination.position - transform.position + offset).normalized;
 
+            updatedTargetPosition = transform.position + newDirection * speed; // Calculate the updated target position
+
+            pipeAvoidance = true; // Enable pipe avoidance mode
+        }
+
+
+    }
     private void Attack()
     {
         if (targetObjective == null)
@@ -67,6 +112,8 @@ public class Enemy : MonoBehaviour
         targetObjective.TakeDamage(damage);
     }
 
+
+
     public void TakeDamage(int damage)
     {
         currentHP -= damage;
@@ -75,7 +122,7 @@ public class Enemy : MonoBehaviour
             Destroy(gameObject);
             DropEnergy();
         }
-            
+
 
         EnemyHPBar.SetState(currentHP, maxHP);
     }
