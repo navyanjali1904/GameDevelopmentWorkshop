@@ -7,7 +7,7 @@ public class PlayerMachineSpawn : MonoBehaviour
     // Start is called before the first frame update
 
     public GameObject[] Allobject;
-    public GameObject nearestOBJ;
+    public GameObject nearestOBJ = null;
     public float nearestDistance = 50;
     public float minimumDistanceThreshold = 8f;
     
@@ -17,16 +17,17 @@ public class PlayerMachineSpawn : MonoBehaviour
     public GameObject BlueMachineRB;
     public GameObject ground;
     public PlayerEnergyPickup PlayerEnergyPickup;
+    public GameObject player; 
     public WorldColour worldColour;
      
     private void Start()
     {
         
 
-        GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
+        
 
-        PlayerEnergyPickup = playerObject.GetComponent<PlayerEnergyPickup>();
-        worldColour = playerObject.GetComponent<WorldColour>();
+        PlayerEnergyPickup = player.GetComponent<PlayerEnergyPickup>();
+        
     }
 
     void Update()

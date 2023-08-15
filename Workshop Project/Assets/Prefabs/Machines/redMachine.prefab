@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8765568673369110716}
   - component: {fileID: -1615500780999483484}
   - component: {fileID: 7324386997416083798}
-  - component: {fileID: -1090772732308739567}
+  - component: {fileID: -1174286771945601956}
   m_Layer: 0
   m_Name: redMachine
   m_TagString: RM
@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.9933243, y: 1.4644943, z: 0}
-  m_LocalScale: {x: 1.60925, y: 1.60925, z: 1.60925}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3.4, y: 3.4, z: 3.4}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7956318830306526014}
   m_Father: {fileID: 0}
@@ -180,7 +180,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.9887309, y: 1.0169975}
   m_EdgeRadius: 0
---- !u!114 &-1090772732308739567
+--- !u!114 &-1174286771945601956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -192,8 +192,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6f577a32ee86a34ba06564de7c17197, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHP: 10
-  currentHP: 10
+  maxbullets: 30
+  currentHP: 30
+  machineShootRed: {fileID: 7264551458954899127}
 --- !u!1 &4262451151835758499
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,4 +246,5 @@ MonoBehaviour:
   enemyTag: redEnemy
   fireRate: 1
   bulletPrefab: {fileID: 2117695569073129582, guid: dc7b750af7232c842b5f32d4e3ef4ed9, type: 3}
+  machineHealth: {fileID: -1174286771945601956}
   GameManager: {fileID: 0}

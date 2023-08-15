@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 3890634874180767427}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.05, z: 0}
+  m_LocalPosition: {x: 0.59, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51,6 +51,7 @@ MonoBehaviour:
   enemyTag: yellowEnemy
   fireRate: 1
   bulletPrefab: {fileID: 2117695569073129582, guid: dc7b750af7232c842b5f32d4e3ef4ed9, type: 3}
+  machineHealth: {fileID: 5992918812929838504}
   GameManager: {fileID: 0}
 --- !u!1 &7940196010816089777
 GameObject:
@@ -63,6 +64,8 @@ GameObject:
   - component: {fileID: 4318460932172943210}
   - component: {fileID: 699575462431591564}
   - component: {fileID: 2322467389694103452}
+  - component: {fileID: 5992918812929838504}
+  - component: {fileID: 6136737378908501874}
   m_Layer: 0
   m_Name: yellowMachine
   m_TagString: Machine
@@ -79,9 +82,9 @@ Transform:
   m_GameObject: {fileID: 7940196010816089777}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.993324, y: 1.464494, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 7.9933, y: 1.464494, z: 0}
+  m_LocalScale: {x: 3.6618, y: 3.6618, z: 3.6618}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 456972589993333834}
   m_Father: {fileID: 0}
@@ -129,7 +132,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 6173721093295115506, guid: b6a186125a8327949b5509394ffacccb, type: 3}
+  m_Sprite: {fileID: 4728452280906831618, guid: 12c316a9d0be00a469e641817485d88a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -152,7 +155,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 20
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -165,5 +168,36 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_CollisionDetection: 1
+  m_Constraints: 7
+--- !u!114 &5992918812929838504
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940196010816089777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6f9f71704bb1804884c3eaff5f29c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxbullets: 30
+  currentHP: 30
+  machineShootYellow: {fileID: 3140844594105079726}
+--- !u!114 &6136737378908501874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7940196010816089777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10d954dd3d9937148945548e43c5f9df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machine: {fileID: 7940196010816089777}
+  Target: {fileID: 0}
+  MachineShootYellow: {fileID: 3140844594105079726}
+  RotationSpeed: 90

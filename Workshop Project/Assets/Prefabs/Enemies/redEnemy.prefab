@@ -130,9 +130,9 @@ Transform:
   m_GameObject: {fileID: 1975670895886894552}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalPosition: {x: 0.05113, y: -0.088316, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 2.52065}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2135590506214617465}
   m_Father: {fileID: 0}
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Objective: {fileID: 2646519454582013020, guid: c0130b9516336a34e8ec879dc307b3b7, type: 3}
-  speed: 2
+  speed: 1
   maxHP: 3
   currentHP: 3
   damage: 1
@@ -242,10 +242,6 @@ MonoBehaviour:
   - {fileID: 472682856192114556, guid: c5bc12ce4db469c418f3335d14c501ad, type: 3}
   pipeAvoidance: 0
   chance: 0.808
-  Machines: []
-  MinimumDistance: 8
-  DistancetoMachine: 0
-  machine: {fileID: 0}
 --- !u!61 &-3913896060521119776
 BoxCollider2D:
   m_ObjectHideFlags: 0

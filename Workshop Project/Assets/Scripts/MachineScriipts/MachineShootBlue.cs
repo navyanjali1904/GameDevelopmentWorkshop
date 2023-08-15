@@ -16,8 +16,9 @@ public class MachineShootBlue : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
     public GameObject bulletPrefab;
-    
-    
+    public MachineHealthBlue machinehealthBlue;
+
+
 
     public GameObject GameManager;
 
@@ -36,6 +37,7 @@ public class MachineShootBlue : MonoBehaviour
         {
             
             Shoot();
+            machinehealthBlue.currentHP -= 1;
 
 
             fireCountdown = 1f / fireRate;

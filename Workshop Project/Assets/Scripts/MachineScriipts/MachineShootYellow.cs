@@ -15,6 +15,7 @@ public class MachineShootYellow : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
     public GameObject bulletPrefab;
+    public MachineHEalthYellow machineHealth;
 
 
 
@@ -35,9 +36,12 @@ public class MachineShootYellow : MonoBehaviour
         {
 
             Shoot();
+            machineHealth.currentHP -= 1;
+
 
 
             fireCountdown = 1f / fireRate;
+            
         }
 
 
@@ -55,6 +59,7 @@ public class MachineShootYellow : MonoBehaviour
         {
             bullet.Seek(target, enemyTag);
         }
+        
     }
 
     void UpdateTarget()

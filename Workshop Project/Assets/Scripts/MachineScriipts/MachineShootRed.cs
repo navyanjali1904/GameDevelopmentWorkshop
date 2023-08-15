@@ -16,6 +16,7 @@ public class MachineShootRed : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0f;
     public GameObject bulletPrefab;
+    public MachineHealth machineHealth;
     
     
    
@@ -36,9 +37,13 @@ public class MachineShootRed : MonoBehaviour
         {
             
             Shoot();
+            machineHealth.currentHP -= 1;
             
-            
+
+
+
             fireCountdown = 1f / fireRate;
+            
         }
 
         fireCountdown -= Time.deltaTime;
@@ -49,10 +54,12 @@ public class MachineShootRed : MonoBehaviour
 
         GameObject bulletGO = (GameObject)Instantiate(bulletPrefab, firepoint.position, Quaternion.Euler(0, 0, 0));
         BulletVelocityScript bullet = bulletGO.GetComponent<BulletVelocityScript>();
+        
 
         if (bullet != null)
         {
             bullet.Seek(target, enemyTag);
+            
         }
     }
 

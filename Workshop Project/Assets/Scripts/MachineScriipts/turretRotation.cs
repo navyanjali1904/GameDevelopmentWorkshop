@@ -1,12 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 
 public class turretRotation : MonoBehaviour
 {
     public GameObject machine;
-    public Transform Target;
+    public Transform Target = null;
     public MachineShootRed MachineShootRed; 
     
     Vector2 Direction;
