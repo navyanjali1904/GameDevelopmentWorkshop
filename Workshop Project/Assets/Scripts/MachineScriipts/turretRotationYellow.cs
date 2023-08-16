@@ -9,7 +9,7 @@ public class turretRotationYellow : MonoBehaviour
     public MachineShootYellow MachineShootYellow;
 
     Vector2 Direction;
-    [SerializeField, Range(0, 100)] float RotationSpeed = 2;
+    [SerializeField, Range(0, 100)] float RotationSpeed = 90;
 
 
     private void Start()

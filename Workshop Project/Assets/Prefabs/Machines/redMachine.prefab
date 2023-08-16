@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 6672308509252172749}
   - component: {fileID: 5443860891385607673}
   - component: {fileID: 8765568673369110716}
-  - component: {fileID: -1615500780999483484}
   - component: {fileID: 7324386997416083798}
   - component: {fileID: -1174286771945601956}
+  - component: {fileID: 8503620483915419502}
   m_Layer: 0
   m_Name: redMachine
   m_TagString: RM
@@ -118,22 +118,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 7
---- !u!114 &-1615500780999483484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2433882090533956169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1da91f5e1fd84c64cb50dc4ed6cdbc1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  machine: {fileID: 2433882090533956169}
-  Target: {fileID: 0}
-  MachineShootRed: {fileID: 7264551458954899127}
-  RotationSpeed: 90
 --- !u!61 &7324386997416083798
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -195,6 +179,22 @@ MonoBehaviour:
   maxbullets: 30
   currentHP: 30
   machineShootRed: {fileID: 7264551458954899127}
+--- !u!114 &8503620483915419502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2433882090533956169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1da91f5e1fd84c64cb50dc4ed6cdbc1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  machine: {fileID: 2433882090533956169}
+  Target: {fileID: 0}
+  MachineShootRed: {fileID: 7264551458954899127}
+  RotationSpeed: 90
 --- !u!1 &4262451151835758499
 GameObject:
   m_ObjectHideFlags: 0
