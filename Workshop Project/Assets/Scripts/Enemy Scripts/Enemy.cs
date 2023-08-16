@@ -18,7 +18,11 @@ public class Enemy : MonoBehaviour
     [SerializeField] EnemyStatusBar EnemyHPBar;
     public GameObject[] Energies;
     public bool pipeAvoidance = false;
-    private Vector3 updatedTargetPosition;
+    public Vector3 updatedTargetPosition;
+
+
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
     [Range(0f, 1f)]
     public float chance = 0.6f;
@@ -33,7 +37,10 @@ public class Enemy : MonoBehaviour
     {
 
         rgdbd2d = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>(); // needed for telling the animator to change values
+        _spriteRenderer = GetComponent<SpriteRenderer>(); // needed for flipping sprite to face direction
     }
+
 
 
 
@@ -43,9 +50,9 @@ public class Enemy : MonoBehaviour
            Objective = GameObject.FindGameObjectWithTag("Finish");
            targetGameobject = Objective;
             targetDestination = Objective.transform;
-            
 
-        
+        FlipSprite();
+
 
         Vector3 direction = (targetDestination.position - transform.position).normalized;
         if (pipeAvoidance)
@@ -62,6 +69,7 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject == targetGameobject)
         {
             Attack();
+            _animator.SetBool("isAttacking", true);
         }
 
         if (collision.gameObject.tag == "Pipe")
@@ -85,6 +93,7 @@ public class Enemy : MonoBehaviour
         }
 
         targetObjective.TakeDamage(damage);
+        speed = 0;
     }
 
 
@@ -118,5 +127,26 @@ public class Enemy : MonoBehaviour
 
     }
 
+    private void FlipSprite()
+    {
+
+        updatedTargetPosition = targetDestination.position - transform.position;
+
+        updatedTargetPosition.Normalize();
+
+        _animator.SetFloat("X", updatedTargetPosition.x);
+        _animator.SetFloat("Y", updatedTargetPosition.y);
+
+        if (updatedTargetPosition.x < -0.1 )
+        {
+            _spriteRenderer.flipX = true;
+        }
+
+        else if (updatedTargetPosition.x >= -0.09)
+        {
+            _spriteRenderer.flipX = false;
+        }
+
+    }
 
 }
